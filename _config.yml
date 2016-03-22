@@ -1,3 +1,5 @@
-	name: Ding Ding Dawn
-	markdown: kramdown
-	permalink: /blog/:year/:month/:day/:title
+name: Ding Ding Dawn
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
+gems:
+  - jekyll-sitemap
