@@ -1,2 +1,3 @@
-	name: Ding Ding Dawn, Blog
+	name: Ding Ding Dawn
 	markdown: kramdown
+	permalink: /blog/:year/:month/:day/:title
