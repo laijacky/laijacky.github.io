@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>aHa云视频解析</title>
+    <style type="text/css">
+    body,
+    html,
+    div {
+        background-color: black;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        color: #999;
+    }
+    </style>
+    <script type="text/javascript" src="/ckplayer/ckplayer.js" charset="utf-8"></script>
+</head>
+
+<body style="overflow-y:hidden;">
+    <div id="loading" style="font-weight:bold;padding-top:90px;" align="center">客官稍等呦! 正在加载中....</div>
+    <div id="a1" style="display:none;"></div>
+    <div id="error" style="display:none;font-weight:bold;padding-top:90px;" align="center"></div>
+    <script type="text/javascript">
+    	let video = location.search.split('?url=')[1];
+		let isiPad = navigator.userAgent.match(/iPad|iPhone|Android|Linux|iPod/i) != null;
+		if (isiPad) {
+		    document.getElementById('a1').innerHTML = '<video src="http://laijacky.github.io/v/redsea.m3u8" controls="controls" autoplay="autoplay" width="100%" height="100%" poster="/ckplayer/poster.jpg"></video>';
+		} else {
+		    let flashvars = { f: '/ckplayer/m3u8.swf', a: 'http://laijacky.github.io/v/redsea.m3u8', c: 0, s: 4, lv: 0, p: 1, v: 100, b: 1 };
+		    let params = { bgcolor: '#FFF', allowFullScreen: true, allowScriptAccess: 'always', wmode: 'transparent' };
+		    CKobject.embedSWF('/ckplayer/ckplayer.swf', 'a1', 'ckplayer_a1', '100%', '100%', flashvars, params);
+		}
+		document.querySelector('#loading').style.display = 'none';
+		document.querySelector('#a1').style.display = 'block';
+    </script>
+</body>
+</html>
